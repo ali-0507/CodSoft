@@ -1,1 +1,59 @@
+import java.util.Random;
+// import java.util.Scanner;
+import java.util.Scanner;
+
+//import java.util.Random;
+
+public class HeapAssignQues {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+     Random num = new Random(); //this class and object will generate random number
+     boolean again = true;
+  
+     while (again) {
+     int i =1;   //LowerBound
+     int j=100;  //UpperBound
+     int random_num = num.nextInt(j - i + 1) + i;
+    
+    int guess;
+    int no_of_try = 0;
+    boolean Correctly_guess = false;
+
+    System.out.println("Welcome to the number Game ! ");
+    System.out.println("I have picked a number between " + i + " and " + j + ".");
+    System.out.println("Try to guess it in three attempts... ");
+
+   
+    
+   
+    while(!Correctly_guess == true){
+        System.out.println("Enter your number : ");
+        guess = sc.nextInt();
+        no_of_try++;
+        if(no_of_try > 3){
+            System.out.println("You are Failed! Better Luck for next time..");
+            break;
+        }
+        
+        if(guess < random_num){
+         System.out.println("It's too low! Try again..");
+        }else if(guess > random_num){
+            System.out.println("It's too high! Try again..");
+        }else{
+            Correctly_guess = true;
+            System.out.println("Congratulations! You guessed the correct number in " + no_of_try + " tries..");
+            return;
+        }
+    }
+    if(!Correctly_guess){
+        System.out.println("Do you want to paly again ? (Yes/No)");
+        String str = sc.next().toLowerCase();
+        again = str.equals("yes");
+    }
+}
+    sc.close();
+    }
+}
+
+
 
